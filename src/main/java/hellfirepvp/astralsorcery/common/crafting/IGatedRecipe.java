@@ -37,13 +37,14 @@ public interface IGatedRecipe {
         ResearchProgression getRequiredProgression();
 
         default public boolean hasProgressionServer(EntityPlayer player) {
-            return ResearchManager.getProgress(player, Side.SERVER)
-                    .getResearchProgression().contains(getRequiredProgression());
+            /// remove shit progression check that has no errors and is insanely fucking dumb
+            return true;
         }
 
         @SideOnly(Side.CLIENT)
         default public boolean hasProgressionClient() {
-            return ResearchManager.clientProgress.getResearchProgression().contains(getRequiredProgression());
+            /// remove shit progression check that has no errors and is insanely fucking dumb
+            return true;
         }
 
     }

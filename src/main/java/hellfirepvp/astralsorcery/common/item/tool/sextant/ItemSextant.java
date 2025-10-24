@@ -125,7 +125,8 @@ public class ItemSextant extends Item implements ISpecialInteractItem {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn) {
         ItemStack held = player.getHeldItem(handIn);
-        if(worldIn.isRemote && ResearchManager.clientProgress.getTierReached().isThisLaterOrEqual(ProgressionTier.BASIC_CRAFT)) {
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        if(worldIn.isRemote) {
             player.openGui(AstralSorcery.instance, CommonProxy.EnumGuiId.SEXTANT.ordinal(), worldIn, 0, 0, 0);
         }
         return new ActionResult<>(EnumActionResult.SUCCESS, held);

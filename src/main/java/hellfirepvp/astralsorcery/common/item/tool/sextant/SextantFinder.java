@@ -174,9 +174,8 @@ public class SextantFinder {
 
         @Override
         public boolean isSelectable(ItemStack stack, @Nullable PlayerProgress progress) {
-            if (progress == null) return false;
-            return (!advanced && progress.getTierReached().isThisLaterOrEqual(ProgressionTier.BASIC_CRAFT)) ||
-                    (ItemSextant.isAdvanced(stack) && progress.getTierReached().isThisLaterOrEqual(ProgressionTier.CONSTELLATION_CRAFT));
+            /// remove shit progression check that has no errors and is insanely fucking dumb
+            return progress != null;
         }
 
         @Nonnull

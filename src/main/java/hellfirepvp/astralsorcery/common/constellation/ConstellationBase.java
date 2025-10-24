@@ -96,8 +96,8 @@ public abstract class ConstellationBase implements IConstellation {
     }
 
     public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-        return !Mods.GAMESTAGES.isPresent() ||
-                (player != null && canDiscoverGameStages(player, progress));
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        return true;
     }
 
     //Guess we can only config one at a time...
@@ -174,8 +174,8 @@ public abstract class ConstellationBase implements IConstellation {
 
         @Override
         public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-            return !Mods.GAMESTAGES.isPresent() ||
-                    (player != null && canDiscoverGameStages(player, progress));
+            // Progression requirements removed - always allow constellation discovery
+            return true;
         }
     }
 
@@ -197,9 +197,8 @@ public abstract class ConstellationBase implements IConstellation {
 
         @Override
         public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-            return super.canDiscover(player, progress) &&
-                    progress.getTierReached().isThisLaterOrEqual(ProgressionTier.ATTUNEMENT) &&
-                    progress.wasOnceAttuned();
+            // Progression requirements removed - always allow constellation discovery
+            return true;
         }
     }
 
@@ -259,9 +258,8 @@ public abstract class ConstellationBase implements IConstellation {
 
         @Override
         public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-            return super.canDiscover(player, progress) &&
-                    progress.wasOnceAttuned() &&
-                    progress.getTierReached().isThisLaterOrEqual(ProgressionTier.TRAIT_CRAFT);
+            /// remove shit progression check that has no errors and is insanely fucking dumb
+            return true;
         }
     }
 

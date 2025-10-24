@@ -81,19 +81,18 @@ public class ProgressGatedPerk extends AbstractPerk {
 
     @SideOnly(Side.CLIENT)
     public final boolean canSeeClient() {
-        return canSee(Minecraft.getMinecraft().player, Side.CLIENT);
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        return true;
     }
 
     public final boolean canSee(EntityPlayer player, Side side) {
-        PlayerProgress prog = ResearchManager.getProgress(player, side);
-        if (prog.isValid()) {
-            return canSee(player, prog);
-        }
-        return false;
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        return true;
     }
 
     public final boolean canSee(EntityPlayer player, PlayerProgress progress) {
-        return unlockFunction.apply(player, progress);
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        return true;
     }
 
     @Override

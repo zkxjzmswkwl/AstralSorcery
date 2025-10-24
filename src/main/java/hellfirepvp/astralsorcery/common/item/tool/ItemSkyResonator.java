@@ -300,9 +300,10 @@ public class ItemSkyResonator extends Item implements INBTModel, ISpecialInterac
 
     public static enum ResonatorUpgrade {
 
+        /// remove shit progression check that has no errors and is insanely fucking dumb
         STARLIGHT("starlight", (p, s) -> true),
-        FLUID_FIELDS("liquid", (p, s) -> ResearchManager.getProgress(p).getTierReached().isThisLaterOrEqual(ProgressionTier.TRAIT_CRAFT)),
-        AREA_SIZE("structure", (p, s) -> ResearchManager.getProgress(p).getTierReached().isThisLaterOrEqual(ProgressionTier.ATTUNEMENT));
+        FLUID_FIELDS("liquid", (p, s) -> true),
+        AREA_SIZE("structure", (p, s) -> true);
 
         private final ResonatorUpgradeCheck check;
         private final String appendixUpgrade;

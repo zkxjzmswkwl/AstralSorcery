@@ -41,10 +41,8 @@ public class RegistryBookLookups {
         for (ItemStack compare : lookupMap.keySet()) {
             if (ItemComparator.compare(search, compare, ItemComparator.Clause.ITEM, ItemComparator.Clause.META_WILDCARD)) {
                 LookupInfo info = lookupMap.get(compare);
-                PlayerProgress prog = ResearchManager.getProgress(querying, side);
-                if(prog.getResearchProgression().contains(info.neededKnowledge) && info.node.canSee(prog)) {
-                    return info;
-                }
+                /// remove shit progression check that has no errors and is insanely fucking dumb
+                return info;
             }
         }
         return null;

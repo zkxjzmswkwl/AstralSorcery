@@ -290,11 +290,8 @@ public class TileAttunementAltar extends TileEntityTick implements IMultiblockDe
                 EntityPlayerMP pl = EntityUtils.selectClosest(players, (player) -> thisVec.distanceSquared(player.getPositionVector()));
                 if (pl != null && !MiscUtils.isPlayerFakeMP(pl) && !pl.isSneaking()) {
                     PlayerProgress prog = ResearchManager.getProgress(pl, Side.SERVER);
-                    if (prog.isValid() &&
-                            prog.getAttunedConstellation() == null &&
-                            prog.getResearchProgression().contains(ResearchProgression.ATTUNEMENT) &&
-                            prog.getKnownConstellations().contains(activeFound.getUnlocalizedName())) {
-
+                    /// remove shit progression check that has no errors and is insanely fucking dumb
+                    if (prog.isValid() && prog.getAttunedConstellation() == null) {
                         PktAttunementAltarState state = new PktAttunementAltarState(pl.getEntityId(), world.provider.getDimension(), getPos());
                         PacketChannel.CHANNEL.sendTo(state, pl);
                         return;
@@ -444,10 +441,8 @@ public class TileAttunementAltar extends TileEntityTick implements IMultiblockDe
     public void askForAttunement(EntityPlayerMP playerEntity, IMajorConstellation cst) {
         if(mode == 1 && playerAttunementWaitTick > 0 && activeEntity != null && playerEntity.equals(activeEntity)) {
             PlayerProgress prog = ResearchManager.getProgress(playerEntity, Side.SERVER);
-            if(prog.isValid() &&
-                    prog.getAttunedConstellation() == null &&
-                    prog.getResearchProgression().contains(ResearchProgression.ATTUNEMENT) &&
-                    prog.getKnownConstellations().contains(cst.getUnlocalizedName())) {
+            /// remove shit progression check that has no errors and is insanely fucking dumb
+            if(prog.isValid() && prog.getAttunedConstellation() == null) {
                 ResearchManager.setAttunedConstellation(playerEntity, cst);
 
                 for (int i = 0; i < 6; i++) {

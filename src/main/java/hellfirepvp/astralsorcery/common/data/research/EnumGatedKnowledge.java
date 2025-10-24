@@ -41,7 +41,8 @@ public enum EnumGatedKnowledge {
     }
 
     public boolean canSee(ProgressionTier compCapability) {
-        return capability.ordinal() <= compCapability.ordinal();
+        /// remove shit progression check that has no errors and is insanely fucking dumb
+        return true;
     }
 
 }
