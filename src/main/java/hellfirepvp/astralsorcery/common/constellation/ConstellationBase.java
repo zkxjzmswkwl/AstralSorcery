@@ -174,7 +174,7 @@ public abstract class ConstellationBase implements IConstellation {
 
         @Override
         public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-            // Progression requirements removed - always allow constellation discovery
+            /// remove shit progression check that has no errors and is insanely fucking dumb
             return true;
         }
     }
@@ -197,7 +197,7 @@ public abstract class ConstellationBase implements IConstellation {
 
         @Override
         public boolean canDiscover(EntityPlayer player, PlayerProgress progress) {
-            // Progression requirements removed - always allow constellation discovery
+            /// remove shit progression check that has no errors and is insanely fucking dumb
             return true;
         }
     }
